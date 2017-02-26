@@ -1,0 +1,39 @@
+<html ng-app="AppDallowah">
+  <head>
+      <title>Dallowah JS: 테이블 - 원하는 결과 숫자만큼 필터</title>
+
+      <!-- 공통으로 쓰는 CSS 파일 라이브러리 입니다 -->
+      <link href="../../resources/css/bootstrap/3.3.7/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+      <!-- 이 프로젝트 안에서 쓰는 CSS 파일 라이브러리 입니다 -->
+      <link href="./css/customStyleTableByTotalResults.css" rel="stylesheet" type="text/css" />
+
+  <body ng-controller="TableFilterByTotalResults">
+
+    <h1>Dallowah: 원하는 숫자만큼 결과 보기</h1>
+
+    <div style="text-align: center;">
+      <span style="margin-right: 10px;" class="badge" ng-class="selectedTotalResults == num ? 'bg-red' : 'bg-white'" ng-repeat="num in listResultTotals" ng-click="change2TotalResult(num)" >{{num}}</span>
+    </div>
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Cities</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="city in listCities | limitTo: selectedTotalResults">
+              <td>{{$index}}</td>
+              <td>{{city}}</td>
+          </tr>
+      </tbody>
+
+    <!-- 공통으로 쓰는 JS 파일 라이브러리 입니다 -->
+    <script src="../../resources/js/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../resources/js/angularJS/1.5.8/angular.min.js"></script>
+
+    <!-- 이 프로젝트 안에서 쓰는 JS 파일 라이브러리 입니다 -->
+    <script src="./js/controllers/tableFilterByTotalResultsCtrl.js"></script>
+  </body>
+</html>
